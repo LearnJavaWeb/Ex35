@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{pro.detail}"></title>
+</head>
+<body>
+<h1 th:text="#{pro.detail}">:<span th:text="${province.name}"></span></h1>
+<a href="/provinces" th:text="#{pro.list}"></a>
+Language: <a href="?lang=en">English</a> | <a href="?lang=fr">French</a>
+<table border="1">
+    <tr>
+        <th th:text="#{cus.firstname}"></th>
+        <th th:text="#{cus.lastname}"></th>
+    </tr>
+    <th:block th:each="customer : ${customers}">
+        <tr>
+            <td th:text="${customer.firstName}"></td>
+            <td th:text="${customer.lastName}"></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{pro.create}"></title>
+</head>
+<body>
+<h1 th:text="#{pro.create}"></h1>
+<p>
+    <a href="/provinces" th:text="#{pro.list}"></a>
+</p>
+Language: <a href="?lang=en">English</a> | <a href="?lang=fr">French</a>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/create-province}" th:object="${province}" method="post">
+    <table>
+        <tr>
+            <td th:text="#{pro.name}"></td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" th:value="#{pro.create}"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
